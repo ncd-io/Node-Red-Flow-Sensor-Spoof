@@ -1,0 +1,137 @@
+[
+    {
+        "id": "186f3d02a7efde53",
+        "type": "tab",
+        "label": "Sensor Spoof",
+        "disabled": true,
+        "info": ""
+    },
+    {
+        "id": "f3f1360dcb0be70c",
+        "type": "inject",
+        "z": "186f3d02a7efde53",
+        "name": "Particulate Matter Sensor",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"nodeId\":0,\"firmware\":3,\"battery\":\"3.29\",\"battery_percent\":\"99.64\",\"counter\":148,\"sensor_type\":32,\"sensor_data\":{\"mass_concentration_1_0\":0,\"mass_concentration_2_5\":0,\"mass_concentration_4_0\":0,\"mass_concentration_10_0\":0,\"number_concentration_0_5\":0,\"number_concentration_1_0\":0,\"number_concentration_2_5\":0,\"number_concentration_4_0\":0,\"number_concentration_10_0\":0,\"typical_size\":0,\"Humidity\":25,\"Temperature\":25},\"sensor_name\":\"Particulate Matter Sensor\",\"type\":\"sensor_data\",\"addr\":\"00:13:a2:00:41:8c:31:66\",\"received\":1643317945037,\"original\":{\"mac\":\"00:13:a2:00:41:8c:31:66\",\"receive_options\":{\"ack\":0,\"broadcast\":0,\"type\":\"\"},\"data\":[127,0,3,3,255,148,0,1,0,6,87,10,18],\"type\":\"receive_packet\"}}",
+        "payloadType": "json",
+        "x": 650,
+        "y": 440,
+        "wires": [
+            [
+                "e1d8c401a8bc4ce2"
+            ]
+        ]
+    },
+    {
+        "id": "e1d8c401a8bc4ce2",
+        "type": "http request",
+        "z": "186f3d02a7efde53",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "credentials": {
+            "user": "",
+            "password": ""
+        },
+        "x": 900,
+        "y": 440,
+        "wires": [
+            [
+                "fe00d4a565776cd3"
+            ]
+        ]
+    },
+    {
+        "id": "fe00d4a565776cd3",
+        "type": "debug",
+        "z": "186f3d02a7efde53",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1140,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "0479e27602760b2b",
+        "type": "ncd-gateway-node",
+        "z": "186f3d02a7efde53",
+        "name": "",
+        "connection": "",
+        "unknown_devices": 0,
+        "outputs": 1,
+        "x": 640,
+        "y": 640,
+        "wires": [
+            [
+                "d77f164ca70ba4d3"
+            ]
+        ]
+    },
+    {
+        "id": "d77f164ca70ba4d3",
+        "type": "debug",
+        "z": "186f3d02a7efde53",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 890,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "e40fb6320e68ba94",
+        "type": "inject",
+        "z": "186f3d02a7efde53",
+        "name": "Type 8",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"nodeId\":0,\"firmware\":3,\"battery\":\"3.29\",\"battery_percent\":\"99.64\",\"counter\":148,\"sensor_type\":8,\"sensor_data\":{\"rms_x\":0,\"rms_y\":0,\"rms_z\":0,\"max_x\":0,\"max_y\":0,\"max_z\":0,\"min_x\":0,\"min_y\":0,\"min_z\":0,\"temperature\":0},\"sensor_name\":\"Vibration\",\"type\":\"sensor_data\",\"addr\":\"00:13:a2:00:41:8c:31:66\",\"received\":1643317945037,\"original\":{\"mac\":\"00:13:a2:00:41:8c:31:66\",\"receive_options\":{\"ack\":0,\"broadcast\":0,\"type\":\"\"},\"data\":[127,0,3,3,255,148,0,1,0,6,87,10,18],\"type\":\"receive_packet\"}}",
+        "payloadType": "json",
+        "x": 650,
+        "y": 500,
+        "wires": [
+            [
+                "fe00d4a565776cd3"
+            ]
+        ]
+    }
+]
